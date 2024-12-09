@@ -1,0 +1,205 @@
+.pageContainer {
+  min-height: 100vh;
+  padding-bottom: 70px;
+}
+
+.main {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  background: #1a1a1a;
+  color: white;
+  padding: 1rem;
+  border-radius: 19px;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  text-align: left;
+  padding: 1rem;
+  background: #2a2a2a;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #999;
+  border-bottom: 1px solid #333;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #2a2a2a;
+  vertical-align: middle;
+}
+
+/* Update column widths */
+.table th:nth-child(1), 
+.table td:nth-child(1) { /* Users column */
+  width: 35%;
+}
+
+.table th:nth-child(2), 
+.table td:nth-child(2) { /* Challenge column */
+  width: 30%;
+}
+
+.table th:nth-child(3), 
+.table td:nth-child(3) { /* Date column */
+  width: 20%;
+}
+
+.table th:nth-child(4), 
+.table td:nth-child(4) { /* Volume column */
+  width: 15%;
+}
+
+.tokenCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chainIcon {
+  font-size: 1.2rem;
+}
+
+.tokenName {
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.chainName {
+  color: #666;
+}
+
+.usersCell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatarStack {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.avatarTop, .avatarBottom {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+  background-color: #fff;
+}
+
+.avatarTop {
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: #8CD7C4;
+}
+
+.avatarBottom {
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: #FFB168;
+}
+
+.userNames {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.challenger {
+  font-weight: 700;
+  color: #fff;
+}
+
+.opponent {
+  font-weight: 400;
+  color: #999;
+}
+
+.challengeCell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dateCell {
+  white-space: nowrap;
+}
+
+.dateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.dateInfo span:last-child {
+  color: #666;
+}
+
+/* Add volume cell styling */
+.volumeCell{
+  font-weight: 500;
+  color: #4ade80;
+  text-align: right;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .main {
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .tokenCell {
+    gap: 0.5rem;
+  }
+
+  .usersCell {
+    gap: 0.75rem;
+  }
+
+  .avatarStack {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatarTop, .avatarBottom {
+    width: 30px;
+    height: 30px;
+  }
+
+  .userNames {
+    font-size: 0.8rem;
+  }
+} 

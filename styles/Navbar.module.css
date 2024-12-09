@@ -1,0 +1,93 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	background-color: white;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.leftSection {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.logo img {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.searchBar {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.searchBar input {
+	padding: 0.5rem 2.5rem 0.5rem 1rem;
+	border: 1px solid #e0e0e0;
+	border-radius: 20px;
+	width: 250px;
+	font-size: 0.9rem;
+}
+
+.searchIcon {
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #666;
+	pointer-events: none;
+}
+
+.centerSection {
+	display: flex;
+	gap: 2rem;
+}
+
+.centerSection a {
+	text-decoration: none;
+	color: #666;
+	font-weight: 500;
+	padding: 0.5rem 1rem;
+}
+
+.centerSection a.active {
+	color: #000;
+	font-weight: 600;
+}
+
+.rightSection {
+	display: flex;
+	gap: 1rem;
+}
+
+.signupButton {
+	padding: 0.5rem 1rem;
+	border: 1px solid #e0e0e0;
+	border-radius: 20px;
+	background: white;
+	color: #333;
+	cursor: pointer;
+}
+
+.loginButton {
+	padding: 0.5rem 1.5rem;
+	border: none;
+	border-radius: 20px;
+	background: #000;
+	color: white;
+	cursor: pointer;
+}
+
+.logoIcon {
+	font-size: 1.5rem;
+	color: #007bff;
+}
+
+.centerSection a svg {
+	margin-right: 0.5rem;
+}
+
+/* Dark mode toggle styles can be added here */

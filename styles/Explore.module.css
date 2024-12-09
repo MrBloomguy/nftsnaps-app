@@ -1,0 +1,996 @@
+.explorePage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.composeSection {
+  background: #1a1a1a;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border: 1px solid #2a2a2a;
+  width: 100%;
+}
+
+.composeContent {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: calc(100% - 44px);
+  height: 100%;
+}
+
+.challengeInput {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  resize: none;
+  padding: 8px 0;
+  height: 32px;
+  line-height: 32px;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.challengeInput::placeholder {
+  color: #666;
+}
+
+.challengeInput:focus {
+  outline: none;
+}
+
+.composeActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 100%;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.gifText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+}
+
+.actionButton:hover .gifText {
+  color: #fff;
+}
+
+.challengeButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 32px;
+}
+
+.challengeButton:hover {
+  background: #7c3aed;
+}
+
+.challengeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .explorePage {
+    padding: 12px;
+  }
+
+  .composeSection {
+    border-radius: 24px;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  .challengeButton {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .challengeButton svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .actionButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .gifText {
+    font-size: 12px;
+  }
+}
+
+/* Feed Section Styles */
+.feedSection {
+  margin-top: 24px;
+  background: #1a1a1a;
+  border-radius: 19px;
+  overflow: hidden;
+}
+
+.feedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.feedTabs {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.feedTab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 100px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.feedTab:hover {
+  background: #2a2a2a;
+}
+
+.feedTab.active {
+  background: #2a2a2a;
+  color: #ff6b00;
+  border-color: #ff6b00;
+}
+
+.tabIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.tabCount {
+  background: #2a2a2a;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.feedTab.active .tabCount {
+  background: rgba(255, 107, 0, 0.2);
+  color: #ff6b00;
+}
+
+.viewToggle {
+  display: flex;
+  gap: 8px;
+}
+
+.viewButton {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewButton.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.feedContent {
+  padding: 16px;
+}
+
+/* List View */
+.feedContent.list .feedItem {
+  background: #1a1b1e;
+  border-bottom: 1px solid #2a2b2e;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.feedContent.list .feedItem:hover {
+  background: #1e1f23;
+}
+
+.feedContent.list .authorAvatar {
+  width: 40px;
+  height: 40px;
+}
+
+.feedContent.list .itemContent {
+  flex: 1;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feedContent.list .itemHeader {
+  margin-bottom: 0;
+}
+
+.feedContent.list .challengeAction {
+  color: #666;
+}
+
+.feedContent.list .challengeTarget {
+  color: #fff;
+}
+
+.feedContent.list .prediction {
+  color: #fff;
+  margin: 0 4px;
+}
+
+.feedContent.list .amount {
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.feedContent.list .timestamp {
+  color: #666;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.feedContent.list .itemEngagement {
+  display: none;
+}
+
+.feedContent.list .challengeInfo {
+  display: none;
+}
+
+/* Action buttons for list view */
+.feedContent.list .actionButtons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.feedContent.list .acceptButton,
+.feedContent.list .declineButton {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.feedContent.list .acceptButton {
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.feedContent.list .declineButton {
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.feedContent.list .acceptButton:hover {
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.feedContent.list .declineButton:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+/* Grid View */
+.feedContent.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.feedContent.grid .feedItem {
+  background: #1a1b1e;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #2a2b2e;
+}
+
+.itemHeader {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.authorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.authorName {
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verifiedBadge {
+  color: #1d9bf0;
+  font-size: 14px;
+}
+
+.itemMeta {
+  color: #666;
+  font-size: 14px;
+}
+
+.itemContent {
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.challengeInfo {
+  margin-top: 12px;
+  padding: 12px;
+  background: #2a2a2a;
+  border-radius: 8px;
+}
+
+.wager {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.wager span {
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+.voteButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.voteYes, .voteNo {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.voteYes {
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+}
+
+.voteNo {
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+}
+
+.voteYes:hover {
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.voteNo:hover {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.checkmark, .cross {
+  font-size: 18px;
+}
+
+.challengeStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.statusIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+
+.itemEngagement {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #2a2b2e;
+}
+
+.engageButton {
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.engageButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .feedContent.grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedHeader {
+    padding: 12px;
+  }
+
+  .feedTab {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+} 
+
+/* Avatar Styles */
+.avatarGroup {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.groupAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #2a2a2a;
+}
+
+.groupAvatar:nth-child(2) {
+  margin-left: -16px;
+  position: relative;
+}
+
+.usernameGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.username {
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.username:hover {
+  opacity: 0.8;
+}
+
+.vsLabel {
+  color: #666;
+  margin: 0 4px;
+  font-size: 12px;
+}
+
+/* Single Avatar Style */
+.authorAvatar {
+  width: 32px;  /* Reduced from 48px */
+  height: 32px; /* Reduced from 48px */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Update content spacing */
+.itemContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0; /* For text truncation */
+}
+
+/* Make sure all items align properly */
+.feedItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.feedItem:hover {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.08));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.itemIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.itemTitle {
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+.variantTag {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 6px;
+  color: #4ade80;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #a0a0a0;
+  font-size: 13px;
+}
+
+.stockInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff6b00;
+  font-weight: 500;
+}
+
+.priceSection {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.retailPrice {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.wholesalePrice {
+  color: #a0a0a0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Add status-specific variant colors */
+.variantTag.active {
+  background: rgba(74, 222, 128, 0.15);
+  border-color: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+.variantTag.awaiting {
+  background: rgba(255, 107, 0, 0.15);
+  border-color: rgba(255, 107, 0, 0.2);
+  color: #ff6b00;
+}
+
+.variantTag.ended {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.predictionLine {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.predictionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 3px; /* Align with content start */
+}
+
+.predictionAvatar {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.prediction {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  margin-left: 30px; /* Align with content start */
+  padding-left: 10px; /* Avatar width + gap */
+}
+
+.voteCount {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin-left: 72px; /* Align with prediction text */
+}
+
+.username {
+  color: #fff;
+  font-weight: 500;
+}
+
+.action {
+  color: #666;
+}
+
+.yes {
+  color: #4ade80;
+}
+
+.no {
+  color: #f87171;
+}
+
+.timerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 12px;
+}
+
+.hot {
+  background: rgba(255, 59, 48, 0.15);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  color: #ff3b30;
+}
+
+.hot:hover {
+  background: rgba(255, 59, 48, 0.2);
+}
+
+.postContent {
+  font-size: 15px;
+  color: #fff;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.engagement {
+  display: flex;
+  gap: 16px;
+  color: #666;
+  font-size: 13px;
+}
+
+.engagement span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.engagement span:hover {
+  color: #fff;
+}
+
+.timestamp {
+  color: #666;
+  font-size: 13px;
+}
+
+/* Adjust single avatar styling for regular posts */
+.feedItem .avatarGroup:has(> img:only-child) .groupAvatar {
+  margin-left: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.winnerInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.trophyIcon {
+  color: #ffd700;
+}
+
+.wonLabel {
+  color: #666;
+}
+
+.winnings {
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.ended .trophyIcon {
+  margin-right: 4px;
+}
+
+.ended .retailPrice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4ade80;
+}
+
+/* Update existing styles */
+.postEngagement {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.engagementStats {
+  display: flex;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.engagementActions {
+  display: flex;
+  gap: 4rem;
+  padding: 0.75rem 0;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.5rem;
+  border-radius: 9999px;
+}
+
+.actionButton:hover {
+  color: var(--primary-color);
+  background: var(--bg-hover);
+}
+
+.actionButton span {
+  font-size: 0.9rem;
+}
+
+.commentSection {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+/* Dark mode updates */
+@media (prefers-color-scheme: dark) {
+  .engagementStats {
+    color: #999;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .engagementActions,
+  .commentSection {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.feedItem {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.postWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.avatarColumn {
+  flex-shrink: 0;
+}
+
+.contentColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.author {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.dot {
+  color: #666;
+  font-size: 15px;
+}
+
+.timestamp {
+  color: #666;
+  font-size: 15px;
+}
+
+.postContent {
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+
+.postActions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 80px;
+  max-width: 425px;
+  margin-top: 12px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionIcon {
+  color: #666;
+}
+
+.actionCount {
+  color: #666;
+  font-size: 13px;
+}
+
+.actionButton:hover .actionIcon,
+.actionButton:hover .actionCount {
+  color: #8b5cf6;
+}
+
+.liked {
+  color: var(--primary-color);
+}

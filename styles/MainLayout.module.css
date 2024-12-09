@@ -1,0 +1,22 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-bottom: 60px; /* Space for mobile nav */
+}
+
+@supports (padding: max(0px)) {
+  .main {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 769px) {
+  .main {
+    padding-bottom: 0;
+  }
+} 
