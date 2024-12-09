@@ -1,14 +1,16 @@
 // @ts-nocheck
 'use client'
 import { useState } from 'react'
-import ComposeSection from '@/components/ComposeSection'
+
 import { motion } from 'framer-motion'
-import Balancer from 'react-wrap-balancer'
-import { AtSign, ImageIcon, Swords } from 'lucide-react'
-import { useAccount } from 'wagmi'
 import { create } from 'ipfs-http-client'
+import { AtSign, ImageIcon, Swords } from 'lucide-react'
+import Balancer from 'react-wrap-balancer'
+import { useAccount } from 'wagmi'
+
 import { WalletConnect } from '@/components/blockchain/wallet-connect'
 import Gallery from '@/components/collect/gallery'
+import ComposeSection from '@/components/ComposeSection'
 import { BranchIsWalletConnected } from '@/components/shared/branch-is-wallet-connected'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/config/design'
 import useScroll from '@/lib/hooks/use-scroll'
@@ -95,12 +97,12 @@ function ComposeSection() {
   }
 
   return (
-    <div className="w-full bg-white dark:bg-neutral-900 p-4 rounded-lg shadow-sm max-w-2xl mx-auto">
+    <div className="mx-auto w-full max-w-2xl rounded-lg bg-white p-4 shadow-sm dark:bg-neutral-900">
       <div className="flex space-x-4">
         <img
           src={isConnected ? `https://api.dicebear.com/7.x/avataaars/svg?seed=${address}` : `https://api.dicebear.com/7.x/avataaars/svg?seed=guest`}
           alt="Avatar"
-          className="w-12 h-12 rounded-full"
+          className="h-12 w-12 rounded-full"
         />
 
         <div className="relative w-full">
@@ -108,43 +110,43 @@ function ComposeSection() {
             placeholder={`Use "/challenge @username" to create a new challenge`}
             value={content}
             onChange={handleContentChange}
-            className="w-full p-2 border rounded-lg dark:bg-neutral-800 dark:text-white resize-none"
+            className="w-full resize-none rounded-lg border p-2 dark:bg-neutral-800 dark:text-white"
             rows={1}
           />
           {showUserSuggestions && (
-            <div className="absolute z-10 bg-white dark:bg-neutral-800 border rounded-lg shadow-md max-h-60 overflow-y-auto">
+            <div className="absolute z-10 max-h-60 overflow-y-auto rounded-lg border bg-white shadow-md dark:bg-neutral-800">
               {mockUsers
                 .filter((user) => user.username.toLowerCase().includes(userQuery.toLowerCase()))
                 .map((user) => (
                   <button
                     key={user.username}
-                    className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-700 cursor-pointer w-full"
+                    className="flex w-full cursor-pointer items-center p-2 hover:bg-gray-100 dark:hover:bg-neutral-700"
                     onClick={() => handleUserSelect(user.username)}>
                     <img
                       src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`}
                       alt={user.username}
-                      className="w-8 h-8 rounded-full mr-2"
+                      className="mr-2 h-8 w-8 rounded-full"
                     />
                     <div className="flex flex-col">
                       <span className="font-semibold">{user.name}</span>
-                      <span className="text-gray-500 text-sm">@{user.username}</span>
+                      <span className="text-sm text-gray-500">@{user.username}</span>
                     </div>
                   </button>
                 ))}
             </div>
           )}
-          <div className="flex justify-between items-center mt-2">
+          <div className="mt-2 flex items-center justify-between">
             <div className="flex space-x-2">
-              <button className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-700 p-2 rounded-full">
+              <button className="rounded-full p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-700">
                 <AtSign size={20} />
               </button>
-              <label className="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-700 p-2 rounded-full cursor-pointer">
+              <label className="cursor-pointer rounded-full p-2 text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-700">
                 <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
                 <ImageIcon size={20} />
               </label>
             </div>
             <button
-              className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 disabled:opacity-50"
+              className="flex items-center space-x-2 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:opacity-50"
               onClick={handleCreateChallenge}
               disabled={!content.trim() || isLoading}>
               <Swords size={18} />
@@ -155,7 +157,7 @@ function ComposeSection() {
       </div>
       {fileIpfsHash && (
         <div className="mt-2 flex items-center justify-center">
-          <img src={`https://ipfs.io/ipfs/${fileIpfsHash}`} alt="Uploaded" className="max-w-full h-auto rounded-lg" />
+          <img src={`https://ipfs.io/ipfs/${fileIpfsHash}`} alt="Uploaded" className="h-auto max-w-full rounded-lg" />
         </div>
       )}
     </div>
